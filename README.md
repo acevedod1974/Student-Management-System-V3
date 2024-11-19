@@ -1,11 +1,5 @@
 # Student Management System
 
-![Build Status](https://img.shields.io/github/actions/workflow/status/acevedod1974/student-management-system-V4/main.yml)
-![License](https://img.shields.io/github/license/acevedod1974/student-management-system-V4)
-![Version](https://img.shields.io/github/package-json/v/acevedod1974/student-management-system-V4)
-![Dependencies](https://img.shields.io/librariesio/github/acevedod1974/student-management-system-V4)
-![Code Coverage](https://img.shields.io/codecov/c/github/acevedod1974/student-management-system-V4)
-
 This project is a Student Management System built using modern web technologies including React, TypeScript, Zustand for state management, Tailwind CSS for styling, and Vite for building and serving the application.
 
 ## Features
