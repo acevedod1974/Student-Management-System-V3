@@ -13,10 +13,26 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "20"
+
       - run: npm install
+
       - run: npm run build
+
       - run: npm run lint
+
+      # Uncomment the following lines if you have tests to run
+      # - name: Run tests
+      #   run: npm test
