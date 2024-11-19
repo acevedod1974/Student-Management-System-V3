@@ -47,6 +47,10 @@ const calculateFinalGrade = (grades: { score: number }[]): number => {
   return Number(totalScore.toFixed(1));
 };
 
+const generateStudentId = (): string => {
+  return Math.floor(10000000 + Math.random() * 90000000).toString();
+};
+
 export const useCourseStore = create<CourseStore>()(
   persist(
     (set, get) => ({
@@ -68,6 +72,7 @@ export const useCourseStore = create<CourseStore>()(
           const newStudent: Student = {
             id: crypto.randomUUID(),
             ...studentData,
+            studentId: generateStudentId(),
             grades,
             finalGrade: calculateFinalGrade(grades),
           };
@@ -168,34 +173,28 @@ export const useCourseStore = create<CourseStore>()(
           ),
         })),
       addExam: (courseId, examName) =>
-        set((state) => {
-          const newMaxScore = 100;
-          return {
-            courses: state.courses.map((course) =>
-              course.id === courseId
-                ? {
-                    ...course,
-                    exams: [
-                      ...course.exams,
-                      { name: examName, maxScore: newMaxScore },
+        set((state) => ({
+          courses: state.courses.map((course) =>
+            course.id === courseId
+              ? {
+                  ...course,
+                  exams: [...course.exams, { name: examName, maxScore: 100 }],
+                  students: course.students.map((student) => ({
+                    ...student,
+                    grades: [
+                      ...student.grades,
+                      {
+                        id: `grade-${crypto.randomUUID()}`,
+                        examName,
+                        score: 0,
+                        maxScore: 100,
+                      },
                     ],
-                    students: course.students.map((student) => ({
-                      ...student,
-                      grades: [
-                        ...student.grades,
-                        {
-                          id: `grade-${crypto.randomUUID()}`,
-                          examName,
-                          score: 0,
-                          maxScore: newMaxScore,
-                        },
-                      ],
-                    })),
-                  }
-                : course
-            ),
-          };
-        }),
+                  })),
+                }
+              : course
+          ),
+        })),
       deleteExam: (courseId, examIndex) =>
         set((state) => ({
           courses: state.courses.map((course) =>

@@ -32,7 +32,6 @@ export const GradesTable: React.FC<GradesTableProps> = ({
     id: string;
     firstName: string;
     lastName: string;
-    email: string;
   } | null>(null);
 
   const [editingExam, setEditingExam] = useState<number | null>(null);
@@ -95,29 +94,19 @@ export const GradesTable: React.FC<GradesTableProps> = ({
     id: string;
     firstName: string;
     lastName: string;
-    email: string;
   }) => {
     setEditingStudent(student);
   };
 
   const handleStudentEditSave = () => {
     if (editingStudent) {
-      if (
-        !editingStudent.firstName ||
-        !editingStudent.lastName ||
-        !editingStudent.email
-      ) {
+      if (!editingStudent.firstName || !editingStudent.lastName) {
         toast.error("Todos los campos son requeridos");
-        return;
-      }
-      if (!editingStudent.email.includes("@")) {
-        toast.error("Email inválido");
         return;
       }
       updateStudent(course.id, editingStudent.id, {
         firstName: editingStudent.firstName,
         lastName: editingStudent.lastName,
-        email: editingStudent.email,
       });
       setEditingStudent(null);
       toast.success("Datos del estudiante actualizados");
@@ -267,19 +256,6 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                       placeholder="Apellido"
                       className="block w-full px-2 py-1 text-sm border rounded"
                     />
-                    <input
-                      type="email"
-                      value={editingStudent.email}
-                      onChange={(e) =>
-                        setEditingStudent({
-                          ...editingStudent,
-                          email: e.target.value,
-                        })
-                      }
-                      onKeyDown={(e) => handleKeyPress(e, "student")}
-                      placeholder="Email"
-                      className="block w-full px-2 py-1 text-sm border rounded"
-                    />
                     <div className="flex gap-2">
                       <button
                         onClick={handleStudentEditSave}
@@ -300,7 +276,7 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                     <div className="font-medium text-gray-900">
                       {student.firstName} {student.lastName}
                     </div>
-                    <div className="text-sm text-gray-500">{student.email}</div>
+                    <div className="text-sm text-gray-500">{student.id}</div>
                     <button
                       onClick={() => handleStudentEditStart(student)}
                       className="mt-1 p-1 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"

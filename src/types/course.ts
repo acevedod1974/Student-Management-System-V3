@@ -14,7 +14,7 @@ export interface Student {
   id: string;
   firstName: string;
   lastName: string;
-  email: string;
+  studentId: string; // ID numérica de 8 dígitos
   grades: Grade[];
   finalGrade: number;
 }
