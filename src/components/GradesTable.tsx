@@ -41,75 +41,92 @@ export const GradesTable: React.FC<GradesTableProps> = ({
   const [newMaxScore, setNewMaxScore] = useState<number>(100);
 
   const handleEditStart = (
-    studentId: string,
-    gradeId: string,
-    currentValue: number
-  ) => {
-    setEditingCell({ studentId, gradeId, currentValue });
-  };
-
-  const handleEditSave = () => {
-    if (editingCell) {
-      if (confirmAction("¿Está seguro de modificar esta calificación?")) {
-        const newScore = Number(editingCell.currentValue);
-        if (isNaN(newScore) || newScore < 0 || newScore > 100) {
-          toast.error("La calificación debe ser un número entre 0 y 100");
-          return;
+    type: "grade" | "student" | "exam" | "maxScore",
+    id: string,
+    value:
+      | {
+          gradeId?: string;
+          currentValue?: number;
+          firstName?: string;
+          lastName?: string;
         }
-        updateGrade(
-          course.id,
-          editingCell.studentId,
-          editingCell.gradeId,
-          newScore
-        );
-        setEditingCell(null);
-        toast.success("Calificación actualizada");
-      }
+      | string
+      | number
+  ) => {
+    switch (type) {
+      case "grade":
+        setEditingCell({
+          studentId: id,
+          gradeId: (value as { gradeId: string }).gradeId,
+          currentValue: (value as { currentValue: number }).currentValue,
+        });
+        break;
+      case "student":
+        if (typeof value === "object" && value !== null) {
+          setEditingStudent({
+            id,
+            firstName: (value as { firstName: string }).firstName || "",
+            lastName: (value as { lastName: string }).lastName || "",
+          });
+        }
+        break;
+      case "exam":
+        setEditingExam(Number(id));
+        setNewExamDescription(value as string);
+        break;
+      case "maxScore":
+        setEditingMaxScore(Number(id));
+        setNewMaxScore(Number(value));
+        break;
     }
   };
 
-  const handleExamEditStart = (index: number, currentDescription: string) => {
-    setEditingExam(index);
-    setNewExamDescription(currentDescription);
-  };
-
-  const handleExamEditSave = (index: number) => {
-    updateExamDescription(course.id, index, newExamDescription);
-    setEditingExam(null);
-    toast.success("Descripción del examen actualizada");
-  };
-
-  const handleMaxScoreEditStart = (index: number, currentMaxScore: number) => {
-    setEditingMaxScore(index);
-    setNewMaxScore(currentMaxScore);
-  };
-
-  const handleMaxScoreEditSave = (index: number) => {
-    updateExamMaxScore(course.id, index, newMaxScore);
-    setEditingMaxScore(null);
-    toast.success("Calificación máxima del examen actualizada");
-  };
-
-  const handleStudentEditStart = (student: {
-    id: string;
-    firstName: string;
-    lastName: string;
-  }) => {
-    setEditingStudent(student);
-  };
-
-  const handleStudentEditSave = () => {
-    if (editingStudent) {
-      if (!editingStudent.firstName || !editingStudent.lastName) {
-        toast.error("Todos los campos son requeridos");
-        return;
-      }
-      updateStudent(course.id, editingStudent.id, {
-        firstName: editingStudent.firstName,
-        lastName: editingStudent.lastName,
-      });
-      setEditingStudent(null);
-      toast.success("Datos del estudiante actualizados");
+  const handleEditSave = (
+    type: "grade" | "student" | "exam" | "maxScore",
+    id: string
+  ) => {
+    switch (type) {
+      case "grade":
+        if (editingCell) {
+          const newScore = Number(editingCell.currentValue);
+          if (isNaN(newScore) || newScore < 0 || newScore > 100) {
+            toast.error("La calificación debe ser un número entre 0 y 100");
+            return;
+          }
+          updateGrade(
+            course.id,
+            editingCell.studentId,
+            editingCell.gradeId,
+            newScore
+          );
+          setEditingCell(null);
+          toast.success("Calificación actualizada");
+        }
+        break;
+      case "student":
+        if (editingStudent) {
+          if (!editingStudent.firstName || !editingStudent.lastName) {
+            toast.error("Todos los campos son requeridos");
+            return;
+          }
+          updateStudent(course.id, editingStudent.id, {
+            firstName: editingStudent.firstName,
+            lastName: editingStudent.lastName,
+          });
+          setEditingStudent(null);
+          toast.success("Datos del estudiante actualizados");
+        }
+        break;
+      case "exam":
+        updateExamDescription(course.id, Number(id), newExamDescription);
+        setEditingExam(null);
+        toast.success("Descripción del examen actualizada");
+        break;
+      case "maxScore":
+        updateExamMaxScore(course.id, Number(id), newMaxScore);
+        setEditingMaxScore(null);
+        toast.success("Calificación máxima del examen actualizada");
+        break;
     }
   };
 
@@ -119,15 +136,7 @@ export const GradesTable: React.FC<GradesTableProps> = ({
     index?: number
   ) => {
     if (e.key === "Enter") {
-      if (type === "grade") {
-        handleEditSave();
-      } else if (type === "student") {
-        handleStudentEditSave();
-      } else if (type === "exam" && index !== undefined) {
-        handleExamEditSave(index);
-      } else if (type === "maxScore" && index !== undefined) {
-        handleMaxScoreEditSave(index);
-      }
+      handleEditSave(type, index?.toString() || "");
     } else if (e.key === "Escape") {
       if (type === "grade") {
         setEditingCell(null);
@@ -182,7 +191,9 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                   />
                 ) : (
                   <span
-                    onClick={() => handleExamEditStart(index, exam.name)}
+                    onClick={() =>
+                      handleEditStart("exam", index.toString(), exam.name)
+                    }
                     className="cursor-pointer"
                   >
                     {exam.name}
@@ -207,7 +218,11 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                 ) : (
                   <span
                     onClick={() =>
-                      handleMaxScoreEditStart(index, exam.maxScore)
+                      handleEditStart(
+                        "maxScore",
+                        index.toString(),
+                        exam.maxScore
+                      )
                     }
                     className="cursor-pointer"
                   >
@@ -258,7 +273,7 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                     />
                     <div className="flex gap-2">
                       <button
-                        onClick={handleStudentEditSave}
+                        onClick={() => handleEditSave("student", student.id)}
                         className="p-1 text-green-600 hover:bg-green-50 rounded-full transition-colors"
                       >
                         <Save className="w-4 h-4" />
@@ -278,7 +293,12 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                     </div>
                     <div className="text-sm text-gray-500">{student.id}</div>
                     <button
-                      onClick={() => handleStudentEditStart(student)}
+                      onClick={() =>
+                        handleEditStart("student", student.id, {
+                          firstName: student.firstName,
+                          lastName: student.lastName,
+                        })
+                      }
                       className="mt-1 p-1 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"
                     >
                       <Edit2 className="w-4 h-4" />
@@ -317,7 +337,7 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                           autoFocus
                         />
                         <button
-                          onClick={handleEditSave}
+                          onClick={() => handleEditSave("grade", student.id)}
                           className="p-1 text-green-600 hover:bg-green-50 rounded-full transition-colors"
                         >
                           <Save className="w-4 h-4" />
@@ -331,7 +351,10 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                             : "bg-red-100 text-red-800"
                         }`}
                         onClick={() =>
-                          handleEditStart(student.id, grade.id, grade.score)
+                          handleEditStart("grade", student.id, {
+                            gradeId: grade.id,
+                            currentValue: grade.score,
+                          })
                         }
                       >
                         {grade.score.toFixed(1)}
