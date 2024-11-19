@@ -9,7 +9,7 @@ interface StudentFormProps {
     student: {
       firstName: string;
       lastName: string;
-      email: string;
+      id: string;
       finalGrade: number;
     }
   ) => void;
@@ -24,12 +24,16 @@ export const StudentForm: React.FC<StudentFormProps> = ({
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
+    id: "",
     finalGrade: 0,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!/^\d{8}$/.test(formData.id)) {
+      toast.error("La ID debe ser un número de 8 dígitos");
+      return;
+    }
     onSubmit(courseId, formData);
     toast.success("Estudiante agregado exitosamente");
     onClose();
@@ -81,15 +85,13 @@ export const StudentForm: React.FC<StudentFormProps> = ({
 
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Email
+              ID (8 dígitos)
             </label>
             <input
-              type="email"
+              type="text"
               required
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
+              value={formData.id}
+              onChange={(e) => setFormData({ ...formData, id: e.target.value })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
           </div>

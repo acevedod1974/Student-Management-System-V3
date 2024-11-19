@@ -1,6 +1,6 @@
-import React from 'react';
-import { Student } from '../types/student';
-import { Edit2, Trash2, GraduationCap, Mail, Calendar } from 'lucide-react';
+import React from "react";
+import { Student } from "../types/student";
+import { Edit2, Trash2, GraduationCap, Mail, Calendar } from "lucide-react";
 
 interface StudentCardProps {
   student: Student;
@@ -8,7 +8,11 @@ interface StudentCardProps {
   onDelete: (id: string) => void;
 }
 
-export const StudentCard: React.FC<StudentCardProps> = ({ student, onEdit, onDelete }) => {
+export const StudentCard: React.FC<StudentCardProps> = ({
+  student,
+  onEdit,
+  onDelete,
+}) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02] hover:shadow-lg">
       <div className="relative h-48 overflow-hidden">
@@ -24,11 +28,11 @@ export const StudentCard: React.FC<StudentCardProps> = ({ student, onEdit, onDel
           <p className="text-white/80">{student.major}</p>
         </div>
       </div>
-      
+
       <div className="p-4">
         <div className="flex items-center gap-2 text-gray-600 mb-2">
           <Mail className="w-4 h-4" />
-          <span className="text-sm">{student.email}</span>
+          <span className="text-sm">{student.id}</span>
         </div>
         <div className="flex items-center gap-2 text-gray-600 mb-2">
           <GraduationCap className="w-4 h-4" />
@@ -36,15 +40,21 @@ export const StudentCard: React.FC<StudentCardProps> = ({ student, onEdit, onDel
         </div>
         <div className="flex items-center gap-2 text-gray-600 mb-4">
           <Calendar className="w-4 h-4" />
-          <span className="text-sm">Enrolled: {new Date(student.enrollmentDate).toLocaleDateString()}</span>
+          <span className="text-sm">
+            Enrolled: {new Date(student.enrollmentDate).toLocaleDateString()}
+          </span>
         </div>
-        
+
         <div className="flex justify-between items-center mt-4">
-          <span className={`px-3 py-1 rounded-full text-sm ${
-            student.status === 'active' ? 'bg-green-100 text-green-800' :
-            student.status === 'graduated' ? 'bg-blue-100 text-blue-800' :
-            'bg-gray-100 text-gray-800'
-          }`}>
+          <span
+            className={`px-3 py-1 rounded-full text-sm ${
+              student.status === "active"
+                ? "bg-green-100 text-green-800"
+                : student.status === "graduated"
+                ? "bg-blue-100 text-blue-800"
+                : "bg-gray-100 text-gray-800"
+            }`}
+          >
             {student.status.charAt(0).toUpperCase() + student.status.slice(1)}
           </span>
           <div className="flex gap-2">
