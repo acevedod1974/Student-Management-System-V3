@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900;
+  }
+}
+
+@layer components {
+  input, select {
+    @apply border-gray-300 rounded-md shadow-sm;
+  }
+  
+  input:focus, select:focus {
+    @apply ring-2 ring-blue-500 border-blue-500;
+  }
+}
