@@ -1,13 +1,12 @@
 export interface Student {
-  id: string;
+  id: string; // ID numérica de 8 dígitos
   firstName: string;
   lastName: string;
-  email: string;
   dateOfBirth: string;
   grade: string;
   profileImage: string;
   major: string;
   gpa: number;
   enrollmentDate: string;
-  status: 'active' | 'inactive' | 'graduated';
+  status: "active" | "inactive" | "graduated";
 }
