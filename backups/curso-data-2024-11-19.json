@@ -1,0 +1,487 @@
+[
+  {
+    "id": "pf1",
+    "name": "PROCESOS DE FABRICACION 1",
+    "students": [
+      {
+        "id": "pf1-student-1",
+        "firstName": "Juan",
+        "lastName": "García",
+        "email": "student1@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-76a6bc97-4ab4-49fd-a2a2-2684c501b6b3",
+            "examName": "Segundo",
+            "score": 20,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-7aacb6c7-9dc3-4e9a-a834-63b53891dad8",
+            "examName": "Tercero",
+            "score": 20,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-0af72d54-236e-41c4-8960-f52817f4e05a",
+            "examName": "Cuarto",
+            "score": 20,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-74bbe729-2793-478a-9cf4-ffa380b8bb5d",
+            "examName": "Quinto",
+            "score": 15,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-c4a4cf90-36e0-4472-8d3f-9a239292086b",
+            "examName": "Ultimo",
+            "score": 20,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 95
+      },
+      {
+        "id": "pf1-student-2",
+        "firstName": "María",
+        "lastName": "Rodríguez",
+        "email": "student2@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-13a14fae-7531-4370-a886-daec21ae2802",
+            "examName": "Segundo",
+            "score": 12,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-30c10daf-7a08-4b49-bf82-dd2e2be4a9b2",
+            "examName": "Tercero",
+            "score": 5,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-7cbb778f-6a4b-458f-ba1b-53a1f53c96fd",
+            "examName": "Cuarto",
+            "score": 2,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-f9793ce3-1aea-4eed-babd-14d4ecfbc996",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-79734f57-7bc1-475f-82b3-4eae35c348f4",
+            "examName": "Ultimo",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 46
+      },
+      {
+        "id": "pf1-student-3",
+        "firstName": "Carlos",
+        "lastName": "Martínez",
+        "email": "student3@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-3767d703-661e-43fb-b2a6-2637aad0a230",
+            "examName": "Segundo",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-117ac4a0-cf4a-4080-a186-9a0b84893a5a",
+            "examName": "Tercero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-2b657889-70fc-44bd-9229-57eea1fa56fd",
+            "examName": "Cuarto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-3c25405a-9278-4292-8f7a-96eb08f640bf",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-ed81d54c-34e7-4eec-99d2-81177d107c81",
+            "examName": "Ultimo",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 3.7
+      },
+      {
+        "id": "pf1-student-4",
+        "firstName": "Ana",
+        "lastName": "López",
+        "email": "student4@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-001cf20d-1588-4a98-a587-bf5ca0ccbb74",
+            "examName": "Segundo",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-b653415e-262b-4fbd-bcd5-f18b610ed792",
+            "examName": "Tercero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-757c1ac6-769d-4e82-b06a-8fa47b3c5852",
+            "examName": "Cuarto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-2379b54f-0989-44f5-84f2-d6da1f2c641c",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-9d62738a-4603-49b9-97b8-f46a32abb447",
+            "examName": "Ultimo",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 3.4
+      },
+      {
+        "id": "pf1-student-5",
+        "firstName": "Pedro",
+        "lastName": "González",
+        "email": "student5@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-e7a65205-0c2c-4c5e-88f0-99aa8cdf3707",
+            "examName": "Segundo",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-1d4e7a72-1203-4fc0-ae36-dd3bfc3c993a",
+            "examName": "Tercero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-7136cda0-4acb-4487-926b-2234f02d44b7",
+            "examName": "Cuarto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-3bb03efe-e0c5-4427-b662-09c3064d3fbc",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-f56e8973-d26f-4a2d-ac69-53b47780f813",
+            "examName": "Ultimo",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 5.5
+      }
+    ],
+    "exams": [
+      {
+        "name": "Segundo",
+        "maxScore": 20
+      },
+      {
+        "name": "Tercero",
+        "maxScore": 20
+      },
+      {
+        "name": "Cuarto",
+        "maxScore": 20
+      },
+      {
+        "name": "Quinto",
+        "maxScore": 20
+      },
+      {
+        "name": "Ultimo",
+        "maxScore": 20
+      }
+    ]
+  },
+  {
+    "id": "pf2",
+    "name": "PROCESOS DE FABRICACION 2",
+    "students": [
+      {
+        "id": "pf2-student-1",
+        "firstName": "Juan",
+        "lastName": "García",
+        "email": "student1@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-7c1de86f-44c7-412f-b092-d1d21a83d7c9",
+            "examName": "Primero",
+            "score": 15,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-930502eb-8e76-4e91-a8ae-8a61e50063c0",
+            "examName": "Segundo",
+            "score": 11,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-1f9751a5-9920-443b-a413-2210d74331a7",
+            "examName": "Tercero",
+            "score": 10,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-a87873a8-d04e-4327-bc3c-f924bc5c0035",
+            "examName": "Cuarto",
+            "score": 10,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-55bd797e-34a4-492d-87f8-10fdc180f24d",
+            "examName": "Quinto",
+            "score": 10,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 56
+      },
+      {
+        "id": "pf2-student-2",
+        "firstName": "María",
+        "lastName": "Rodríguez",
+        "email": "student2@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-674477e2-f262-4af4-bab2-c4e2e8ba0c98",
+            "examName": "Primero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-2211c54c-9e91-4240-87d6-9530c97cdae9",
+            "examName": "Segundo",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-959676e0-1230-4cec-82c9-a7fe91bed642",
+            "examName": "Tercero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-90a41c03-4f1d-4fc8-9d19-141f55d999bd",
+            "examName": "Cuarto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-d0da428c-c7d3-4831-8601-093998b9d3d0",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 4.5
+      },
+      {
+        "id": "pf2-student-3",
+        "firstName": "Carlos",
+        "lastName": "Martínez",
+        "email": "student3@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-0a8fe4b0-7776-4ade-97b5-838159576a42",
+            "examName": "Primero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-f58fe351-90cf-48dc-8476-70b9bcf289bd",
+            "examName": "Segundo",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-ba048961-aeb6-4850-9ff2-bd199e995cfb",
+            "examName": "Tercero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-cc820913-08c2-45fb-999c-f2ff6afa5050",
+            "examName": "Cuarto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-4fab17e6-0c09-4ace-9179-958ebca42dad",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 1.5
+      },
+      {
+        "id": "pf2-student-4",
+        "firstName": "Ana",
+        "lastName": "López",
+        "email": "student4@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-1c89254f-cb9a-4167-8e21-4a7b9e8d89a1",
+            "examName": "Primero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-01f72cb7-a20a-4716-9965-6eb5e278a9dd",
+            "examName": "Segundo",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-b59b340b-efaa-4519-9d2a-496d637e19e5",
+            "examName": "Tercero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-d3b18626-9d75-4e54-b776-ed977ea3606e",
+            "examName": "Cuarto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-598c8de9-1e09-49d9-92f7-6e538e5e306a",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 5.5
+      },
+      {
+        "id": "pf2-student-5",
+        "firstName": "Pedro",
+        "lastName": "González",
+        "email": "student5@universidad.edu",
+        "grades": [
+          {
+            "id": "grade-2e201968-b088-4c95-8ce8-fdc1688d5f97",
+            "examName": "Primero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-c49000f9-e96c-4840-994d-5cf751c6d206",
+            "examName": "Segundo",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-50ecdba7-4068-4ff5-abbc-3888555d2243",
+            "examName": "Tercero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-821a3572-dd98-470a-8d48-2aa54f921b77",
+            "examName": "Cuarto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-9baa8f94-704f-4005-b9b7-476a8f2a8233",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 6.2
+      },
+      {
+        "id": "eab37efc-50f8-4699-b036-c0bf71fdf384",
+        "firstName": "DANIEL",
+        "lastName": "Acevedo",
+        "email": "acevedod@gmail.com",
+        "grades": [
+          {
+            "id": "grade-552ddd6b-c279-49f2-9499-719bf87182f9",
+            "examName": "Primero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-08329aa9-095a-4f11-a6f4-636af71458cb",
+            "examName": "Segundo",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-a9aebda7-19f7-4a54-b4da-dcf4aeda5021",
+            "examName": "Tercero",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-e2153ea1-0fdb-43bb-b60d-7a32e0362867",
+            "examName": "Cuarto",
+            "score": 0,
+            "maxScore": 100
+          },
+          {
+            "id": "grade-cf159bd5-61ae-46f0-aba8-ec5c31d135cd",
+            "examName": "Quinto",
+            "score": 0,
+            "maxScore": 100
+          }
+        ],
+        "finalGrade": 0
+      }
+    ],
+    "exams": [
+      {
+        "name": "Primero",
+        "maxScore": 20
+      },
+      {
+        "name": "Segundo",
+        "maxScore": 20
+      },
+      {
+        "name": "Tercero",
+        "maxScore": 20
+      },
+      {
+        "name": "Cuarto",
+        "maxScore": 20
+      },
+      {
+        "name": "Quinto",
+        "maxScore": 20
+      }
+    ]
+  }
+]
