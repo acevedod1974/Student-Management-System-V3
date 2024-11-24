@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Trash2, Save, Edit2, X, PlusCircle, MinusCircle } from "lucide-react";
 import { Course } from "../types/course";
 import { useCourseStore } from "../store/useCourseStore";
@@ -289,7 +290,9 @@ export const GradesTable: React.FC<GradesTableProps> = ({
                 ) : (
                   <div>
                     <div className="font-medium text-gray-900">
-                      {student.firstName} {student.lastName}
+                      <Link to={`/course/${course.id}/student/${student.id}`}>
+                        {student.firstName} {student.lastName}
+                      </Link>
                     </div>
                     <div className="text-sm text-gray-500">{student.id}</div>
                     <button

@@ -96,7 +96,11 @@ export const CoursePage: React.FC = () => {
         <StudentForm
           courseId={course.id}
           onSubmit={(courseId, student) =>
-            addStudent(courseId, { ...student, finalGrade: 0 })
+            addStudent(courseId, {
+              ...student,
+              studentId: student.id,
+              finalGrade: 0,
+            })
           }
           onClose={() => setShowAddStudent(false)}
         />

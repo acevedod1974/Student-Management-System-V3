@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import { Navigation } from "./components/Navigation";
 import { Dashboard } from "./pages/Dashboard";
 import { CoursePage } from "./pages/CoursePage";
+import StudentDetailsPage from "./pages/StudentDetailsPage"; // Import the new page
 
 function App() {
   return (
@@ -13,6 +14,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/course/:courseId" element={<CoursePage />} />
+            <Route
+              path="/course/:courseId/student/:studentId"
+              element={<StudentDetailsPage />}
+            />{" "}
+            {/* Add the new route */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
